@@ -6,7 +6,7 @@
 /*   By: tnaceur <tnaceur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:10:03 by tnaceur           #+#    #+#             */
-/*   Updated: 2022/12/07 15:56:27 by tnaceur          ###   ########.fr       */
+/*   Updated: 2022/12/13 17:24:31 by tnaceur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	add_exp(int i, char **cmd, t_env *tmp, int *a)
 {
 	if (!ft_strncmp(cmd[i], tmp->variable, ft_strlen(tmp->variable))
-		&& ft_strlen_c(cmd[i], '=') == (int)ft_strlen(tmp->variable))
+		&& (ft_strlen_c(cmd[i], '=') == (int)ft_strlen(tmp->variable)
+			|| ft_strlen_c(cmd[i], '+') == (int)ft_strlen(tmp->variable)))
 	{
 		*a = 1;
 		if (!cmd[i][ft_strlen_c(cmd[i], '+')]
